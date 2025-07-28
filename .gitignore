@@ -1,0 +1,21 @@
+# Compiled objects
+*.o
+
+# Binary
+hikio
+
+# Backup files
+*.swp
+*.bak
+*~
+
+# Build logs
+compile_commands.json
+
+# Editor settings
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
