@@ -73,7 +73,7 @@ hikio/
 
 ## 📜 License
 
-[MIT](LICENSE)
+[GPL](LICENSE)
 
 ---
 
