@@ -9,7 +9,7 @@
 #include "executor.h"
 #include "history.h"
 
-#define MAX_TOKENS 20
+#define MAX_TOKENS 40
 
 int main() {
     char hist_path[1024];

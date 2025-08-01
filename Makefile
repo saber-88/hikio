@@ -13,3 +13,8 @@ $(TARGET): $(OBJ)
 
 clean:
 	rm -f $(OBJ) $(TARGET)
+
+.PHONY: test
+
+test: all
+	./test/test.sh
