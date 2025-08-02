@@ -8,6 +8,7 @@
 #include "builtins.h"
 #include "executor.h"
 #include "history.h"
+#include <autocomplete.h>
 
 #define MAX_TOKENS 40
 
@@ -15,6 +16,7 @@ int main() {
     char hist_path[1024];
     snprintf(hist_path, sizeof(hist_path), "%s/.hikio_history", getenv("HOME"));
     init_history(hist_path);
+    init_autocomplete();
 
     int exit_shell = 0;
 
