@@ -61,7 +61,13 @@ $ ./hikio
 
 ---
 
-## 🚀 Getting Started
+## 🛠 Installation
+
+### 📦 Requirements
+- GCC
+- GNU Make
+- `readline` library
+- Optional (for better IDE support): [`bear`](https://github.com/rizsotto/Bear)
 
 1. Clone the repository:
    ```bash
@@ -74,6 +80,18 @@ $ ./hikio
    ./setup.sh
    ```
 
+
+---
+
+## 🧪 Development Mode
+
+To just build for development (without installing system-wide):
+
+```bash
+make clean
+bear -- make
+./hikio
+```
 
 ---
 
@@ -98,4 +116,12 @@ Hikio uses:
 
 ## 📜 License
 
-GNU License
+[GPL](LICENSE)
+
+---
+
+## 🤝 Contributing
+
+Pull requests and issues are welcome. This shell is built for educational purposes and open for enhancements.
+
+---
