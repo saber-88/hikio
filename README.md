@@ -1,84 +1,101 @@
-# Hikio — A Minimal Linux Shell
+#  Hikio Shell
 
-`hikio` is a simple, custom-built Unix shell written in C, designed for learning and experimenting with core system-level programming concepts like process management, command parsing, and readline input.
+**Hikio** is a lightweight, Unix-like shell written in C, designed to provide essential shell functionality made only for learning purpose and to explore how shell works under the hood.
 
-## 🚀 Features
+---
 
-- Execute external commands (e.g., `ls`, `fastfetch`, `neofetch`)
-- Built-in commands like:
-  - `cd` – change directory
-  - `clear` – clears and resets the terminal
-  - `exit` – exit the shell
-- Persistent command history (using `readline`)
-- Minimal prompt with current working directory
+## ✨ Features
 
-## 🛠 Installation
+- ✅ **Built-in Commands**
+  - `cd`, `pwd`, `clear`, `exit`, `help`
+- ✅ **Piping**
+  - Chaining commands with `|`
+- ✅ **Redirection**
+  - Input redirection: `<`
+  - Output redirection (overwrite): `>`
+  - Output redirection (append): `>>`
+- ✅ **Tilde Expansion**
+  - `~` expands to home directory
+- ✅ **Environment Variable Expansion**
+  - e.g., `$HOME`, `$USER`, `$PATH`
+- ✅ **Command History**
+  - Arrow keys to navigate previously entered commands
+- ✅ **Autocompletion**
+  - Press `Tab` to auto-complete files/commands from the current directory
 
-### 📦 Requirements
-- GCC
-- GNU Make
-- `readline` library
-- Optional (for better IDE support): [`bear`](https://github.com/rizsotto/Bear)
+---
 
-### 🔧 Setup
+## 📚 Built-in Commands
 
-Just run the setup script:
+| Command | Description                      |
+|---------|----------------------------------|
+| `cd`    | Change current directory         |
+| `pwd`   | Print current working directory  |
+| `clear` | Clear the terminal screen        |
+| `exit`  | Exit the shell                   |
+| `help`  | Display help for built-ins       |
+
+---
+
+## 🔍 Examples
 
 ```bash
-./setup.sh
-```
+$ cd ~/Projects
+# Navigate to ~/Projects using tilde expansion
 
-This will:
-- Build the shell using `make`
-- Generate `compile_commands.json` (for development)
-- Move the `hikio` binary to `/usr/local/bin`
+$ echo $USER
+# Expands environment variable
 
-> 💡 You may need `sudo` for installation.
+$ ls | grep ".c"
+# Pipe output from ls to grep
 
----
+$ sort < unsorted.txt > sorted.txt
+# Redirect input and output
 
-## 🧪 Development Mode
+$ sleep 10 &
+# Run sleep in the background
 
-To just build for development (without installing system-wide):
-
-```bash
-make clean
-bear -- make
-./hikio
+$ ./hikio
+# Start the custom shell
 ```
 
 ---
 
-## 📁 Project Structure
+## 🚀 Getting Started
 
-```
-hikio/
-├── include/         # Header files
-├── src/             # Source code
-├── Makefile         # Build rules
-├── setup.sh         # Installation script
-├── compile_commands.json  # Generated for IDEs
-├── README.md
-└── .gitignore
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/saber-88/hikio.git
+   cd hikio
+   ```
+
+2. Run the setup script:
+   ```bash
+   ./setup.sh
+   ```
+
 
 ---
 
-## ⚠️ Known Bugs
+## 🧠 Under the Hood
 
-- Some graphical terminal programs (like `fastfetch` with PNG image) may not clear properly unless `tput reset` is used in the `clear` command.
-- If you modify any `.c` or `.h` file, recompile using `make`.
+Hikio uses:
+- `fork()`, `execvp()`, `waitpid()` for process creation
+- `readline` for history & input line editing
+- `dup2()` for redirection
+- `pipe()` to implement `|`
+- `opendir()/readdir()` for autocompletion
+- `getenv()` for variable/tilde expansion
+
+---
+
+## 📌 Note
+
+- Icons and colorized output for files can be added in future enhancements.
+- No external dependencies apart from GNU Readline.
 
 ---
 
 ## 📜 License
 
-[GPL](LICENSE)
-
----
-
-## 🤝 Contributing
-
-Pull requests and issues are welcome. This shell is built for educational purposes and open for enhancements.
-
----
+GNU License
