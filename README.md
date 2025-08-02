@@ -125,3 +125,9 @@ Hikio uses:
 Pull requests and issues are welcome. This shell is built for educational purposes and open for enhancements.
 
 ---
+
+## 👤 Author
+
+Developed by [Karmveer](https://github.com/saber-88)
+
+---
